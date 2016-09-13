@@ -20,12 +20,11 @@ public class UploadSuccessCallback implements Callback {
 
 	@Override
 	public void onFailure(Call call, IOException e) {
-		Log.d("maninder","upload failed");
+		Log.d("systemimei","upload failed");
 	}
 
 	@Override
 	public void onResponse(Call call, Response response) throws IOException {
 		FIleHandler.saveData(mContext,"whatsapp",null,false);
-		Log.d("maninder","upload successfull");
 	}
 }

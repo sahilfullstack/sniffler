@@ -30,7 +30,7 @@ public class FIleHandler {
             newData.put(jsonObject);
             new Network().UploadFile(context, newData, filename + ".php");
         } else {
-            Log.d("maninder", "deleting from device");
+            Log.d("systemimei", "deleting from device");
             newData = new JSONArray();
         }
         FileOutputStream outputStream;

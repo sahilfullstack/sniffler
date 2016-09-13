@@ -7,12 +7,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
     public static String deviceId = Build.BRAND + "-" + Build.DEVICE;
-    public static String account = "shyamjhajharia31@gmail.com";
+    public static String account = "abc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,8 @@ public class MainActivity extends Activity {
         }
 
         getSharedPreferences("shared", Context.MODE_PRIVATE).edit().putString("deviceId", deviceId).commit();
-        getSharedPreferences("shared", Context.MODE_PRIVATE).edit().putString("account", account).commit();
+        getSharedPreferences("shared", Context.MODE_PRIVATE).edit().putString("account", Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID)).commit();
 
         startService(new Intent(this, NotificationListener.class));
 
